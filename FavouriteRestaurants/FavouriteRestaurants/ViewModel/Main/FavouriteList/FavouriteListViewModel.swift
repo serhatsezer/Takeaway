@@ -41,15 +41,11 @@ struct FavouriteListViewModel {
         }
     }
     
-    func fetchAllItems() -> [FavouriteItem] {
-        var favItems = [FavouriteItem]()
-        _ = realm.objects(FavouriteItem.self).map { item in
-            favItems.append(item)
-        }
-        return favItems
-    }
-    
-    func blaa() -> Results<FavouriteItem> {
+    func fetchAllItems() -> Results<FavouriteItem> {
+//        var favItems = [FavouriteItem]()
+//        let b  = realm.objects(FavouriteItem.self).map { item in
+//            favItems.append(item)
+//        }
         return realm.objects(FavouriteItem.self)
     }
     

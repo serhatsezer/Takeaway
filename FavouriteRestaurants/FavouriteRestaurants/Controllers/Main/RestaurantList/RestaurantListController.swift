@@ -61,7 +61,9 @@ extension RestaurantListController {
         // just change the path attribute to give meaningfull error message.
         WebServiceManager.shared.getRestaurants(path: "restaurants", completion: { restaurants in
             
+            // After getting all item from server or local sort them using helper struct.
             Sorting.sort(type: .open, dataSource: restaurants, completion: { sortedItems in
+                
                 dataSource = RestaurantListDataSource(items: sortedItems)
                 self.restaurantsTableView.reloadData()
             })

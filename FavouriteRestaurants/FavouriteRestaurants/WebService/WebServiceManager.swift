@@ -29,7 +29,9 @@ class WebServiceManager {
                     failure(.jsonParseError)
                     return
             }
+            
             var stack = [RestaurantListViewModel]()
+            
             if let restaurants = jsonDict?["restaurants"] as? [[String: Any]] {
                 _ = restaurants.map { restaurantDict in
                     let restaurant = RestaurantItem(json: restaurantDict)!
@@ -38,6 +40,16 @@ class WebServiceManager {
                 }
             }
             
+            // I had to manipulate resturants array because favourite items stored in user device.
+            
+            let favouriteItems = Array(FavouriteListViewModel().fetchAllItems())
+            _ = favouriteItems.map { favItem in
+                stack.map { resItem in
+                    if favItem.name == resItem.restaurantName {
+                        resItem.isFavourite.onNext(true)
+                    }
+                }
+            }
             completion(stack)
             
         } else {

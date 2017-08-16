@@ -136,6 +136,7 @@
 		0A1A328A1F3A08A90074C78B /* FavouriteRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				0A54FE921F44B3F000DEA50D /* DataSource */,
 				0A1A32BB1F3A09F20074C78B /* WebService */,
 				0A1A32BA1F3A09EC0074C78B /* ViewModel */,
 				0A1A32B91F3A09E70074C78B /* View */,
@@ -284,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				0A2A38661F3B33F400BFA696 /* RestaurantItem.swift */,
-				0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */,
 			);
 			path = RestaurantList;
 			sourceTree = "<group>";
@@ -376,6 +376,22 @@
 				0A41D1E21F40F5FE006E7A8A /* RestaurantDetailController.swift */,
 			);
 			path = RestaurantDetail;
+			sourceTree = "<group>";
+		};
+		0A54FE921F44B3F000DEA50D /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				0A54FE931F44B40B00DEA50D /* RestaurantList */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		0A54FE931F44B40B00DEA50D /* RestaurantList */ = {
+			isa = PBXGroup;
+			children = (
+				0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */,
+			);
+			path = RestaurantList;
 			sourceTree = "<group>";
 		};
 		0A67A9C01F3B50B50065C389 /* Extensions */ = {
