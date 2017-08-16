@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tey-QG-rfp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Restaurant Detail Controller-->
+        <scene sceneID="YnI-85-Y2c">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantDetail" id="SER-3a-3mS" customClass="RestaurantDetailController" customModule="FavouriteRestaurants" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i9v-EV-3bh"/>
+                        <viewControllerLayoutGuide type="bottom" id="gYc-Qj-QZ6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xGN-iS-oUA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaO-ce-Gpi">
+                                <rect key="frame" x="140" y="318.5" width="95" height="30"/>
+                                <state key="normal" title="Add Favourite"/>
+                                <connections>
+                                    <action selector="addFavouriteTapped:" destination="SER-3a-3mS" eventType="touchUpInside" id="diN-ok-Eec"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE9-mM-mL2">
+                                <rect key="frame" x="26" y="74" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KE9-mM-mL2" firstAttribute="top" secondItem="i9v-EV-3bh" secondAttribute="bottom" constant="10" id="SS5-Sm-CWe"/>
+                            <constraint firstItem="KE9-mM-mL2" firstAttribute="leading" secondItem="xGN-iS-oUA" secondAttribute="leadingMargin" constant="10" id="jKA-6J-GHq"/>
+                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="centerY" secondItem="xGN-iS-oUA" secondAttribute="centerY" id="ogY-a7-AIf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KE9-mM-mL2" secondAttribute="trailing" constant="10" id="t9m-yx-mwb"/>
+                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="centerX" secondItem="xGN-iS-oUA" secondAttribute="centerX" id="tPC-B7-ZtP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="De9-MJ-FJb"/>
+                    <connections>
+                        <outlet property="addFavouriteButton" destination="RaO-ce-Gpi" id="fWk-Hj-Vta"/>
+                        <outlet property="restaurantTitleLabel" destination="KE9-mM-mL2" id="0dj-rx-fa0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpr-VI-dNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3553.5" y="104.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iJM-vn-bq7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tey-QG-rfp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pqS-eq-N2b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SER-3a-3mS" kind="relationship" relationship="rootViewController" id="nDb-Kb-NHv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XI5-ec-v71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2966.5" y="104.5"/>
+        </scene>
+    </scenes>
+</document>

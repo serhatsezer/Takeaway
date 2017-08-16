@@ -17,9 +17,8 @@ struct ThemeManager {
         navAppearance.tintColor = UIColor.white
         navAppearance.backgroundColor = UIColor.appDefault
         navAppearance.isTranslucent = false
-        
-//        let uiBarButton = UIBarButtonItem.appearance()
-//        uiBarButton.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for: .default)
+        navAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+
         
         // UITabbar
         UITabBar.appearance().barTintColor = .tabColor

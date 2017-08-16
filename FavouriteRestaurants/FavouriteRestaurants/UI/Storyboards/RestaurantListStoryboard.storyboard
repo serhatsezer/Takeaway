@@ -107,9 +107,7 @@
                                             <outlet property="restaurantNameLabel" destination="nrd-gA-ICg" id="Sof-EG-wkG"/>
                                             <outlet property="restaurantRatingView" destination="lWK-OC-QfS" id="zY5-RM-zOL"/>
                                             <outlet property="statusLabel" destination="JrP-Cc-62Q" id="kWR-QD-0W0"/>
-                                            <segue destination="dXb-wd-fWp" kind="show" identifier="RestaurantDetailController" id="ody-7v-nRg">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="8al-cs-dO4" kind="show" identifier="RestaurantDetailController" id="KFu-kM-qDw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -148,49 +146,13 @@
             </objects>
             <point key="canvasLocation" x="1993" y="105"/>
         </scene>
-        <!--Restaurant Detail Controller-->
-        <scene sceneID="RfS-m3-xDy">
+        <!--RestaurantDetail-->
+        <scene sceneID="OCh-WK-Cwk">
             <objects>
-                <viewController storyboardIdentifier="RestaurantDetailController" id="dXb-wd-fWp" customClass="RestaurantDetailController" customModule="FavouriteRestaurants" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hS9-Ni-bPe"/>
-                        <viewControllerLayoutGuide type="bottom" id="vzI-TD-Ctq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PdB-nF-Y7V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRt-Vz-Yc3">
-                                <rect key="frame" x="140" y="318.5" width="95" height="30"/>
-                                <state key="normal" title="Add Favourite"/>
-                                <connections>
-                                    <action selector="addFavouriteTapped:" destination="dXb-wd-fWp" eventType="touchUpInside" id="P28-Km-FzD"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K76-l1-zJ7">
-                                <rect key="frame" x="26" y="74" width="323" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="K76-l1-zJ7" firstAttribute="leading" secondItem="PdB-nF-Y7V" secondAttribute="leadingMargin" constant="10" id="TWO-KN-Fdj"/>
-                            <constraint firstItem="K76-l1-zJ7" firstAttribute="top" secondItem="hS9-Ni-bPe" secondAttribute="bottom" constant="10" id="b5W-Si-wwf"/>
-                            <constraint firstItem="gRt-Vz-Yc3" firstAttribute="centerX" secondItem="PdB-nF-Y7V" secondAttribute="centerX" id="lG6-tL-xyh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K76-l1-zJ7" secondAttribute="trailing" constant="10" id="sYH-nW-YvM"/>
-                            <constraint firstItem="gRt-Vz-Yc3" firstAttribute="centerY" secondItem="PdB-nF-Y7V" secondAttribute="centerY" id="wY9-kV-NSs"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addFavouriteButton" destination="gRt-Vz-Yc3" id="UX9-00-cep"/>
-                        <outlet property="restaurantTitleLabel" destination="K76-l1-zJ7" id="AC3-5q-rGO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JWc-bi-BHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="RestaurantDetail" referencedIdentifier="RestaurantDetail" id="8al-cs-dO4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Mq-b8-SEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2967" y="105"/>
+            <point key="canvasLocation" x="2711" y="54"/>
         </scene>
         <!--Restaurant Filter Controller-->
         <scene sceneID="fV0-sB-sno">

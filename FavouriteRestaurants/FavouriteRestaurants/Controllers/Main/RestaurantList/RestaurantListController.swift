@@ -46,8 +46,10 @@ class RestaurantListController: BaseController {
             filterController.transitioningDelegate = self
             filterController.modalPresentationStyle = .custom
         case "RestaurantDetailController":
-            let detailController = segue.destination as! RestaurantDetailController
-            detailController.restaurantViewModel = dataSource.item(at: restaurantsTableView.indexPathForSelectedRow!)
+            if let navTopItem = segue.destination as? RestaurantDetailController {
+                navTopItem.restaurantViewModel = dataSource.item(at: restaurantsTableView.indexPathForSelectedRow!)
+            }
+           
         default:
             break
         }
