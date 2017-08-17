@@ -24,5 +24,8 @@ struct ThemeManager {
         // UITabbar
         UITabBar.appearance().barTintColor = .tabColor
         UITabBar.appearance().tintColor = .white
+        
+        // Segmented control
+        UISegmentedControl.appearance().tintColor = UIColor.appDefault
     }
 }

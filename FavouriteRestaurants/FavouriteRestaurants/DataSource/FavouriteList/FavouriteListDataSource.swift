@@ -35,7 +35,7 @@ struct FavouriteListDataSource {
     /// Writes restaurant item in Realm database
     ///
     /// - Parameter model: Holds all restaurant information
-    func write(model: RestaurantListViewModel) {
+    func write(model: RestaurantListViewModel, completion: () -> ()) {
         try! realm.write {
             let favouriteItem  = FavouriteItem()
             favouriteItem.name = model.restaurantName
@@ -53,7 +53,8 @@ struct FavouriteListDataSource {
             sortings.minCost = model.sortings.minCost
             favouriteItem.sortingValues = sortings
             
-            realm.add(favouriteItem)
+            realm.add(favouriteItem, update: true)
+            completion()
         }
     }
     

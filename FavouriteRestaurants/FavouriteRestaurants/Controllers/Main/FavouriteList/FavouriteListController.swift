@@ -11,7 +11,6 @@ import UIKit
 class FavouriteListController: BaseController {
     
     @IBOutlet weak var favouritesTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     let favouriteDataSource = FavouriteListDataSource()
 

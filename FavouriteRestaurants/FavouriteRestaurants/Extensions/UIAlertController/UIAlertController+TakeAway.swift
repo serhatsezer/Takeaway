@@ -11,7 +11,7 @@ import UIKit
 extension UIAlertController {
     
     static func showAlert(message: String, buttonTitle: String) -> UIAlertController {
-        let alertController = UIAlertController(title: "Warning!", message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
         alertController.addAction(action)
         return alertController

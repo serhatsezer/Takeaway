@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,38 +21,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaO-ce-Gpi">
-                                <rect key="frame" x="140" y="318.5" width="95" height="30"/>
-                                <state key="normal" title="Add Favourite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RaO-ce-Gpi">
+                                <rect key="frame" x="284" y="104" width="87" height="39.5"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="favourite">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="14" name=".SFNSDisplay"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" metaFont="system" size="22"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="❤️">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="22" name=".AppleColorEmojiUI"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="addFavouriteTapped:" destination="SER-3a-3mS" eventType="touchUpInside" id="diN-ok-Eec"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE9-mM-mL2">
-                                <rect key="frame" x="26" y="74" width="323" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-63-Zg4">
+                                <rect key="frame" x="4" y="68" width="367" height="29"/>
+                                <segments>
+                                    <segment title="Menu"/>
+                                    <segment title="Comments (23)"/>
+                                    <segment title="Info"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-PG-eoO">
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="523.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailListCell" id="gJ2-84-psJ" customClass="RestaurantDetailListCell" customModule="FavouriteRestaurants" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJ2-84-psJ" id="faB-da-176">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_product" translatesAutoresizingMaskIntoConstraints="NO" id="omZ-7V-Cye">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="69.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="omZ-7V-Cye" firstAttribute="top" secondItem="faB-da-176" secondAttribute="top" id="21o-fQ-LB5"/>
+                                                <constraint firstItem="omZ-7V-Cye" firstAttribute="leading" secondItem="faB-da-176" secondAttribute="leading" constant="8" id="3IQ-hi-kGG"/>
+                                                <constraint firstAttribute="bottom" secondItem="omZ-7V-Cye" secondAttribute="bottom" id="5AI-07-hlt"/>
+                                                <constraint firstAttribute="trailing" secondItem="omZ-7V-Cye" secondAttribute="trailing" constant="8" id="PwZ-Y3-suf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmW-t6-KPa">
+                                <rect key="frame" x="8" y="104" width="38.5" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KE9-mM-mL2" firstAttribute="top" secondItem="i9v-EV-3bh" secondAttribute="bottom" constant="10" id="SS5-Sm-CWe"/>
-                            <constraint firstItem="KE9-mM-mL2" firstAttribute="leading" secondItem="xGN-iS-oUA" secondAttribute="leadingMargin" constant="10" id="jKA-6J-GHq"/>
-                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="centerY" secondItem="xGN-iS-oUA" secondAttribute="centerY" id="ogY-a7-AIf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KE9-mM-mL2" secondAttribute="trailing" constant="10" id="t9m-yx-mwb"/>
-                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="centerX" secondItem="xGN-iS-oUA" secondAttribute="centerX" id="tPC-B7-ZtP"/>
+                            <constraint firstItem="gmW-t6-KPa" firstAttribute="top" secondItem="Iyp-63-Zg4" secondAttribute="bottom" constant="8" id="ErP-PA-ldc"/>
+                            <constraint firstItem="gYc-Qj-QZ6" firstAttribute="top" secondItem="pgU-PG-eoO" secondAttribute="bottom" id="FWs-qq-lME"/>
+                            <constraint firstItem="pgU-PG-eoO" firstAttribute="leading" secondItem="xGN-iS-oUA" secondAttribute="leading" id="ICC-a6-q6A"/>
+                            <constraint firstItem="gmW-t6-KPa" firstAttribute="leading" secondItem="xGN-iS-oUA" secondAttribute="leading" constant="8" id="MvJ-dR-d96"/>
+                            <constraint firstItem="Iyp-63-Zg4" firstAttribute="top" secondItem="i9v-EV-3bh" secondAttribute="bottom" constant="4" id="S6b-jd-G9r"/>
+                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="top" secondItem="Iyp-63-Zg4" secondAttribute="bottom" constant="8" id="d4O-pQ-Ugn"/>
+                            <constraint firstItem="pgU-PG-eoO" firstAttribute="top" secondItem="gmW-t6-KPa" secondAttribute="bottom" id="nLp-GM-d7F"/>
+                            <constraint firstItem="pgU-PG-eoO" firstAttribute="top" secondItem="RaO-ce-Gpi" secondAttribute="bottom" id="pSn-U5-4KJ"/>
+                            <constraint firstItem="RaO-ce-Gpi" firstAttribute="trailing" secondItem="Iyp-63-Zg4" secondAttribute="trailing" id="tNF-lK-0I0"/>
+                            <constraint firstItem="Iyp-63-Zg4" firstAttribute="leading" secondItem="xGN-iS-oUA" secondAttribute="leading" constant="4" id="ucK-ph-a9q"/>
+                            <constraint firstAttribute="trailing" secondItem="Iyp-63-Zg4" secondAttribute="trailing" constant="4" id="yAU-gt-E8u"/>
+                            <constraint firstAttribute="trailing" secondItem="pgU-PG-eoO" secondAttribute="trailing" id="zC5-Da-UzQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="De9-MJ-FJb"/>
+                    <navigationItem key="navigationItem" id="De9-MJ-FJb">
+                        <barButtonItem key="rightBarButtonItem" id="1Rt-SO-bn7"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addFavouriteButton" destination="RaO-ce-Gpi" id="fWk-Hj-Vta"/>
-                        <outlet property="restaurantTitleLabel" destination="KE9-mM-mL2" id="0dj-rx-fa0"/>
+                        <outlet property="productsTableView" destination="pgU-PG-eoO" id="F6W-Cp-Ht3"/>
+                        <outlet property="restaurantName" destination="gmW-t6-KPa" id="avK-rP-yuz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpr-VI-dNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3553.5" y="104.5"/>
+            <point key="canvasLocation" x="3878" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iJM-vn-bq7">
@@ -74,4 +137,7 @@
             <point key="canvasLocation" x="2966.5" y="104.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dummy_product" width="778" height="228"/>
+    </resources>
 </document>
