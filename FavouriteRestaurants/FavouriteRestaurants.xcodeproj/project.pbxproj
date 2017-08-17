@@ -34,8 +34,8 @@
 		0AB4277E1F3B78C3003291E8 /* WebServiceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4277D1F3B78C3003291E8 /* WebServiceLogger.swift */; };
 		0AEC46A71F3EE88B001C54A0 /* RestaurantFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC46A61F3EE88B001C54A0 /* RestaurantFilterController.swift */; };
 		0AEC46AA1F3F052E001C54A0 /* FavouriteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC46A91F3F052E001C54A0 /* FavouriteListCell.swift */; };
-		0AEC46AC1F3F0845001C54A0 /* FavoruiteListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC46AB1F3F0845001C54A0 /* FavoruiteListStoryboard.storyboard */; };
-		0AEC46AE1F3F090A001C54A0 /* RestaurantListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC46AD1F3F090A001C54A0 /* RestaurantListStoryboard.storyboard */; };
+		0AEC46AC1F3F0845001C54A0 /* FavoruiteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC46AB1F3F0845001C54A0 /* FavoruiteList.storyboard */; };
+		0AEC46AE1F3F090A001C54A0 /* RestaurantList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC46AD1F3F090A001C54A0 /* RestaurantList.storyboard */; };
 		0AEC46B11F3F2E9C001C54A0 /* RestaurantFilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC46B01F3F2E9C001C54A0 /* RestaurantFilterListCell.swift */; };
 		0AEC46B41F3F33B9001C54A0 /* RestaurantFilterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC46B31F3F33B8001C54A0 /* RestaurantFilterListViewModel.swift */; };
 		0AEC46B71F3F36F9001C54A0 /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC46B61F3F36F9001C54A0 /* FilterItem.swift */; };
@@ -85,8 +85,8 @@
 		0AB4277D1F3B78C3003291E8 /* WebServiceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceLogger.swift; sourceTree = "<group>"; };
 		0AEC46A61F3EE88B001C54A0 /* RestaurantFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantFilterController.swift; sourceTree = "<group>"; };
 		0AEC46A91F3F052E001C54A0 /* FavouriteListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteListCell.swift; sourceTree = "<group>"; };
-		0AEC46AB1F3F0845001C54A0 /* FavoruiteListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoruiteListStoryboard.storyboard; sourceTree = "<group>"; };
-		0AEC46AD1F3F090A001C54A0 /* RestaurantListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantListStoryboard.storyboard; sourceTree = "<group>"; };
+		0AEC46AB1F3F0845001C54A0 /* FavoruiteList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoruiteList.storyboard; sourceTree = "<group>"; };
+		0AEC46AD1F3F090A001C54A0 /* RestaurantList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantList.storyboard; sourceTree = "<group>"; };
 		0AEC46B01F3F2E9C001C54A0 /* RestaurantFilterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantFilterListCell.swift; sourceTree = "<group>"; };
 		0AEC46B31F3F33B8001C54A0 /* RestaurantFilterListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantFilterListViewModel.swift; sourceTree = "<group>"; };
 		0AEC46B61F3F36F9001C54A0 /* FilterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 			children = (
 				0A1A32B21F3A099B0074C78B /* LaunchScreen.storyboard */,
 				0A1A32B31F3A099B0074C78B /* Main.storyboard */,
-				0AEC46AD1F3F090A001C54A0 /* RestaurantListStoryboard.storyboard */,
-				0AEC46AB1F3F0845001C54A0 /* FavoruiteListStoryboard.storyboard */,
+				0AEC46AD1F3F090A001C54A0 /* RestaurantList.storyboard */,
+				0AEC46AB1F3F0845001C54A0 /* FavoruiteList.storyboard */,
 				0A54FE941F44BB7C00DEA50D /* RestaurantDetail.storyboard */,
 			);
 			path = Storyboards;
@@ -593,8 +593,8 @@
 			files = (
 				0A2A38601F3B32A400BFA696 /* restaurants.json in Resources */,
 				0A1A32B51F3A099B0074C78B /* Main.storyboard in Resources */,
-				0AEC46AE1F3F090A001C54A0 /* RestaurantListStoryboard.storyboard in Resources */,
-				0AEC46AC1F3F0845001C54A0 /* FavoruiteListStoryboard.storyboard in Resources */,
+				0AEC46AE1F3F090A001C54A0 /* RestaurantList.storyboard in Resources */,
+				0AEC46AC1F3F0845001C54A0 /* FavoruiteList.storyboard in Resources */,
 				0A54FE951F44BB7C00DEA50D /* RestaurantDetail.storyboard in Resources */,
 				0A1A32B41F3A099B0074C78B /* LaunchScreen.storyboard in Resources */,
 				0A1A32B71F3A09A30074C78B /* Assets.xcassets in Resources */,
