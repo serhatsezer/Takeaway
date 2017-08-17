@@ -1,24 +1,32 @@
 //
-//  FavouriteListViewModel.swift
+//  FavouriteListDataSource.swift
 //  FavouriteRestaurants
 //
-//  Created by Serhat Sezer on 11/08/2017.
+//  Created by Serhat Sezer on 17/08/2017.
 //  Copyright © 2017 Serhat Sezer. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-/**
- This model responsible for writing persistent model and fetching FavouriteItem by given position
- */
-struct FavouriteListViewModel {
+struct FavouriteListDataSource {
     fileprivate var realm: Realm = try! Realm()
-    /**
-     This method writes necessary informations on Realm
-     
-     - parameter model: holds all necessary inforamation related to restaurant.
-     */
+
+    func fetchItem(indexPath: IndexPath) -> RestaurantListViewModel? {
+        let fetchedItems = realm.objects(FavouriteItem.self)
+        guard indexPath.row < fetchedItems.count else {
+            return nil
+        }
+        let favItem = fetchedItems[indexPath.row]
+        let resItem = RestaurantItem(name: favItem.name, status: favItem.status, sortings: SortingValues())
+        let viewModel = RestaurantListViewModel(model: resItem)
+        return viewModel
+    }
+    
+    var count: Int {
+        return realm.objects(FavouriteItem.self).count
+    }
+    
     func write(model: RestaurantListViewModel) {
         try! realm.write {
             let favouriteItem  = FavouriteItem()
@@ -42,26 +50,10 @@ struct FavouriteListViewModel {
     }
     
     func fetchAllItems() -> Results<FavouriteItem> {
-//        var favItems = [FavouriteItem]()
-//        let b  = realm.objects(FavouriteItem.self).map { item in
-//            favItems.append(item)
-//        }
         return realm.objects(FavouriteItem.self)
     }
-    
-    func fetchItem(indexPath: IndexPath) -> RestaurantListViewModel? {
-        let fetchedItems = realm.objects(FavouriteItem.self)
-        guard indexPath.row < fetchedItems.count else {
-            return nil
-        }
-        let favItem = fetchedItems[indexPath.row]
-        let resItem = RestaurantItem(name: favItem.name, status: favItem.status, sortings: SortingValues())
-        let viewModel = RestaurantListViewModel(model: resItem)
-        return viewModel
-    }
-    
-    var count: Int {
-        return realm.objects(FavouriteItem.self).count
-    }
-    
+
 }
+
+
+

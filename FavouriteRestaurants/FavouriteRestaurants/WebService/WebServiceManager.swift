@@ -42,7 +42,7 @@ class WebServiceManager {
             
             // I had to manipulate resturants array because favourite items stored in user device.
             
-            let favouriteItems = Array(FavouriteListViewModel().fetchAllItems())
+            let favouriteItems = Array(FavouriteListDataSource().fetchAllItems())
             _ = favouriteItems.map { favItem in
                 stack.map { resItem in
                     if favItem.name == resItem.restaurantName {

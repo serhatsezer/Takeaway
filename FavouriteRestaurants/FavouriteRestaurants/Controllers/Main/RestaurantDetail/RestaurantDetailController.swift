@@ -15,8 +15,8 @@ class RestaurantDetailController: UIViewController {
     @IBOutlet weak var addFavouriteButton: UIButton!
     
     // View Models
-    let favouriteViewModel = FavouriteListViewModel()
     var restaurantViewModel: RestaurantListViewModel?
+    let favouriteDataSource = FavouriteListDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,6 @@ class RestaurantDetailController: UIViewController {
             return
         }
         vm.isFavourite.onNext(true)
-        favouriteViewModel.write(model: vm)
+        favouriteDataSource.write(model: vm)
     }
 }

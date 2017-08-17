@@ -13,7 +13,7 @@ class FavouriteListController: BaseController {
     @IBOutlet weak var favouritesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let favouriteListViewModel = FavouriteListViewModel()
+    let favouriteDataSource = FavouriteListDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class FavouriteListController: BaseController {
         switch identifier {
         case "RestaurantDetailController":
             let detailController = segue.destination as! RestaurantDetailController
-            let vm = favouriteListViewModel.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
+            let vm = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
             detailController.restaurantViewModel = vm
         default:
             break
@@ -51,12 +51,12 @@ extension FavouriteListController {
 
 extension FavouriteListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favouriteListViewModel.count
+        return favouriteDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavouriteListCell.cellID, for: indexPath) as! FavouriteListCell
-        cell.restaurantViewModel = favouriteListViewModel.fetchItem(indexPath: indexPath)
+        cell.restaurantViewModel = favouriteDataSource.fetchItem(indexPath: indexPath)
         return cell
     }
 }

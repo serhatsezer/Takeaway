@@ -21,12 +21,12 @@
 		0A2A38751F3B3E9F00BFA696 /* RestaurantListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A38741F3B3E9F00BFA696 /* RestaurantListCell.swift */; };
 		0A3D2ECB1F3DD2E100DF86CC /* UIAlertController+TakeAway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ECA1F3DD2E100DF86CC /* UIAlertController+TakeAway.swift */; };
 		0A3D2ECE1F3DF4A500DF86CC /* FavouriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ECD1F3DF4A500DF86CC /* FavouriteItem.swift */; };
-		0A3D2ED11F3DFB8A00DF86CC /* FavouriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ED01F3DFB8A00DF86CC /* FavouriteListViewModel.swift */; };
 		0A3D2ED51F3DFDF300DF86CC /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ED41F3DFDF300DF86CC /* FavouriteListController.swift */; };
 		0A41D1E31F40F5FE006E7A8A /* RestaurantDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41D1E21F40F5FE006E7A8A /* RestaurantDetailController.swift */; };
 		0A41D2111F41F9EB006E7A8A /* RestaurantListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */; };
 		0A41D2131F41FB94006E7A8A /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41D2121F41FB94006E7A8A /* Sorting.swift */; };
 		0A54FE951F44BB7C00DEA50D /* RestaurantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A54FE941F44BB7C00DEA50D /* RestaurantDetail.storyboard */; };
+		0A567B961F4601090012697B /* FavouriteListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A567B951F4601090012697B /* FavouriteListDataSource.swift */; };
 		0A67A9BF1F3B4BDC0065C389 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9BE1F3B4BDC0065C389 /* RestaurantListViewModel.swift */; };
 		0A67A9C31F3B51190065C389 /* Meter+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9C21F3B51190065C389 /* Meter+Double.swift */; };
 		0A67A9C71F3B55CE0065C389 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9C61F3B55CE0065C389 /* FloatingButton.swift */; };
@@ -72,12 +72,12 @@
 		0A2A38741F3B3E9F00BFA696 /* RestaurantListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListCell.swift; sourceTree = "<group>"; };
 		0A3D2ECA1F3DD2E100DF86CC /* UIAlertController+TakeAway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+TakeAway.swift"; sourceTree = "<group>"; };
 		0A3D2ECD1F3DF4A500DF86CC /* FavouriteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteItem.swift; sourceTree = "<group>"; };
-		0A3D2ED01F3DFB8A00DF86CC /* FavouriteListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteListViewModel.swift; sourceTree = "<group>"; };
 		0A3D2ED41F3DFDF300DF86CC /* FavouriteListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
 		0A41D1E21F40F5FE006E7A8A /* RestaurantDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailController.swift; sourceTree = "<group>"; };
 		0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListDataSource.swift; sourceTree = "<group>"; };
 		0A41D2121F41FB94006E7A8A /* Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 		0A54FE941F44BB7C00DEA50D /* RestaurantDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantDetail.storyboard; sourceTree = "<group>"; };
+		0A567B951F4601090012697B /* FavouriteListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteListDataSource.swift; sourceTree = "<group>"; };
 		0A67A9BE1F3B4BDC0065C389 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
 		0A67A9C21F3B51190065C389 /* Meter+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meter+Double.swift"; sourceTree = "<group>"; };
 		0A67A9C61F3B55CE0065C389 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -327,7 +327,6 @@
 		0A2A38721F3B3E1400BFA696 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0A3D2ECF1F3DFB2100DF86CC /* FavouriteList */,
 				0A2A38731F3B3E2400BFA696 /* RestaurantList */,
 			);
 			path = Main;
@@ -357,14 +356,6 @@
 			path = FavouriteList;
 			sourceTree = "<group>";
 		};
-		0A3D2ECF1F3DFB2100DF86CC /* FavouriteList */ = {
-			isa = PBXGroup;
-			children = (
-				0A3D2ED01F3DFB8A00DF86CC /* FavouriteListViewModel.swift */,
-			);
-			path = FavouriteList;
-			sourceTree = "<group>";
-		};
 		0A3D2ED31F3DFDCE00DF86CC /* FavouriteList */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +375,7 @@
 		0A54FE921F44B3F000DEA50D /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				0A567B941F4600660012697B /* FavouriteList */,
 				0A54FE931F44B40B00DEA50D /* RestaurantList */,
 			);
 			path = DataSource;
@@ -395,6 +387,14 @@
 				0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */,
 			);
 			path = RestaurantList;
+			sourceTree = "<group>";
+		};
+		0A567B941F4600660012697B /* FavouriteList */ = {
+			isa = PBXGroup;
+			children = (
+				0A567B951F4601090012697B /* FavouriteListDataSource.swift */,
+			);
+			path = FavouriteList;
 			sourceTree = "<group>";
 		};
 		0A67A9C01F3B50B50065C389 /* Extensions */ = {
@@ -669,7 +669,6 @@
 				0A41D1E31F40F5FE006E7A8A /* RestaurantDetailController.swift in Sources */,
 				0A3D2ECE1F3DF4A500DF86CC /* FavouriteItem.swift in Sources */,
 				0A2A38751F3B3E9F00BFA696 /* RestaurantListCell.swift in Sources */,
-				0A3D2ED11F3DFB8A00DF86CC /* FavouriteListViewModel.swift in Sources */,
 				0AEC46B41F3F33B9001C54A0 /* RestaurantFilterListViewModel.swift in Sources */,
 				0A2A386A1F3B3BAF00BFA696 /* BaseController.swift in Sources */,
 				0A41D2131F41FB94006E7A8A /* Sorting.swift in Sources */,
@@ -683,6 +682,7 @@
 				0AEC46B71F3F36F9001C54A0 /* FilterItem.swift in Sources */,
 				0AB4277E1F3B78C3003291E8 /* WebServiceLogger.swift in Sources */,
 				0AEC46BA1F3F3F14001C54A0 /* CircularTransition.swift in Sources */,
+				0A567B961F4601090012697B /* FavouriteListDataSource.swift in Sources */,
 				0A67A9C71F3B55CE0065C389 /* FloatingButton.swift in Sources */,
 				0A3D2ED51F3DFDF300DF86CC /* FavouriteListController.swift in Sources */,
 				0A2A38701F3B3D9300BFA696 /* RestaurantListController.swift in Sources */,
