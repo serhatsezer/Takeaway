@@ -12,6 +12,13 @@ import RxSwift
 struct WebServiceLogger {
     static var shared: WebServiceLogger = WebServiceLogger()
     
+    /// If There is any server issues (Like server gets down or other undesirable issues happens) this method
+    /// notifies related server.
+    /// - Parameters:
+    ///   - file: Which file at error occurred
+    ///   - line: Which line
+    ///   - message: Shows a given message to a user
+    /// - Returns: Returns observable to stream it should be async.
     func log(file: String, line: Int, message: String) -> Observable<AnyObject?> {
         print("Successfully logged : \(file) \(line) \(message)")
         
@@ -31,8 +38,6 @@ struct WebServiceLogger {
                 fakeData = nil
             }
         })
-        
-       
     }
 }
 

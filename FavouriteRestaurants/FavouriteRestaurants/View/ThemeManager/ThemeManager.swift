@@ -9,8 +9,10 @@
 import UIKit
 
 struct ThemeManager {
+    
+    /// Basically changes all application ui
+    /// We can also add fonts or other neccessary stuff
     static func appDefault() {
-        
         // Navigation
         let navAppearance = UINavigationBar.appearance()
         navAppearance.barTintColor = UIColor.appDefault
@@ -18,7 +20,6 @@ struct ThemeManager {
         navAppearance.backgroundColor = UIColor.appDefault
         navAppearance.isTranslucent = false
         navAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-
         
         // UITabbar
         UITabBar.appearance().barTintColor = .tabColor

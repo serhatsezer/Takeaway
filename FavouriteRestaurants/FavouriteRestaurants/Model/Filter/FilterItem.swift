@@ -22,6 +22,7 @@ enum FilterType: String {
 }
 
 
+/// This Filter item used by sorting controller
 struct FilterItem {
     let filterName: String
     let imagePath: String

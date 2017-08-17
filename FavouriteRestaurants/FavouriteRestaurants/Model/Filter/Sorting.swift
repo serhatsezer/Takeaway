@@ -10,6 +10,12 @@ import Foundation
 
 struct Sorting {
     
+    /// This method sort given data by mainpulating given data.
+    ///
+    /// - Parameters:
+    ///   - type: It specifies what type of filtering will occur
+    ///   - dataSource: It holds necessary models
+    ///   - completion: Returns filtered data with manipulated data source
     static func sort(type: FilterType, dataSource: [RestaurantListViewModel], completion: ([RestaurantListViewModel]) -> ()) {
         
         var items = dataSource

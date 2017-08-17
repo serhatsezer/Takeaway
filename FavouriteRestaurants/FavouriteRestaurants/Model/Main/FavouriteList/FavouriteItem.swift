@@ -15,6 +15,10 @@ class FavouriteItem: Object {
     dynamic var isFavourite: Bool = false
     dynamic var sortingValues: PersistedSortingValues!
     
+    /// This convience method convert restaurant item into favourite item
+    /// This process should be happen becase both share same properties expect this model use Realm database.
+    ///
+    /// - Parameter model: Holds all related restaurant information.
     convenience init(model: RestaurantItem) {
         self.init()
         self.name = model.name

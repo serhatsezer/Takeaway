@@ -8,24 +8,26 @@
 
 import Foundation
 
-
-
 class WebServiceManager {
     
     static var shared: WebServiceManager = WebServiceManager()
     
+    /// This method request JSON file from local and gives list of RestaurantListViewModel
+    ///
+    /// - Parameters:
+    ///   - path: Resource of local json file.
+    ///   - completion: If parsing process complete successfully this callback gives list of RestaurantListViewModel
+    ///   - failure: If there will be any parsing or naming issue happens this callback gets call.
     func getRestaurants(path: String, completion: ([RestaurantListViewModel]) -> (), failure: (WebServiceErrorHandler) -> ()) {
         
         if let jsonPathURL = Bundle.main.url(forResource: path, withExtension: "json") {
             guard let jsonData = try? Data(contentsOf: jsonPathURL, options: Data.ReadingOptions.mappedIfSafe) else {
-                print("Bundle error")
                 failure(.noBundleExistError)
                 return
             }
             
             guard let jsonDict = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
                 else {
-                    print("Parsing error")
                     failure(.jsonParseError)
                     return
             }
@@ -41,7 +43,6 @@ class WebServiceManager {
             }
             
             // I had to manipulate resturants array because favourite items stored in user device.
-            
             let favouriteItems = Array(FavouriteListDataSource().fetchAllItems())
             _ = favouriteItems.map { favItem in
                 stack.map { resItem in
@@ -50,6 +51,7 @@ class WebServiceManager {
                     }
                 }
             }
+            // Call callback to give related view models
             completion(stack)
             
         } else {

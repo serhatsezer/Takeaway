@@ -22,11 +22,22 @@ struct RestaurantItem: RestaurantItemProtocol {
     
     typealias JSON = [String: Any]
    
+    /// Convience initializer it fill related properties
+    ///
+    /// - Parameters:
+    ///   - name: Restaurant name
+    ///   - status: Restaurant status like (open, closed, order ahead)
+    ///   - sortings: Sorting values like (minPrice, avarage, etc.)
     init(name: String, status: String, sortings: SortingValues) {
         self.name = name
         self.status = status
         self.sortingValues = sortings
     }
+    
+    /// This method parse and map model from json key-value
+    ///
+    /// - Parameter:
+    ///   - json: JSON value given from server or local request
     
     init?(json: JSON) {
         guard let name = json["name"] as? String,
@@ -39,7 +50,6 @@ struct RestaurantItem: RestaurantItemProtocol {
         self.status = status // status could be anything beside "open", "close" or "don't accept the order"
         self.sortingValues = SortingValues(json: sortingValues)
     }
-    
 }
 
 struct SortingValues {
@@ -51,12 +61,16 @@ struct SortingValues {
     var averageProductPrice: Double = 0
     var deliveryCosts: Double = 0
     var minCost: Double = 0
-    
+    typealias JSON = [String: Any]
+
     init() {
         
     }
     
-    init(json: [String: Any]) {
+    /// This method also parse sorting values from given dictionary key-value pair
+    ///
+    /// - Parameter json: Contains filtering key-value pairs.
+    init(json: JSON) {
         guard let bestMatch = json["bestMatch"] as? Double,
             let newest = json["newest"] as? Double,
             let ratingAverage = json["ratingAverage"] as? Double,
