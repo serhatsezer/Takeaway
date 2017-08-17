@@ -19,6 +19,8 @@ struct RestaurantItem: RestaurantItemProtocol {
     var status: String
     var isFavourite: Bool = false
     var sortingValues: SortingValues
+    
+    typealias JSON = [String: Any]
    
     init(name: String, status: String, sortings: SortingValues) {
         self.name = name
@@ -26,7 +28,7 @@ struct RestaurantItem: RestaurantItemProtocol {
         self.sortingValues = sortings
     }
     
-    init?(json: [String: Any]) {
+    init?(json: JSON) {
         guard let name = json["name"] as? String,
             let status = json["status"] as? String,
             let sortingValues = json["sortingValues"] as? [String: Any] else {
