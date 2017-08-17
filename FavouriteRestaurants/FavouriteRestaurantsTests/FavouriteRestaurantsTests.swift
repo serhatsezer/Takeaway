@@ -21,6 +21,33 @@ class FavouriteRestaurantsTests: XCTestCase {
         super.tearDown()
     }
     
+    func testRestaurantName() {
+        // Check name
+        let sortings = SortingValues()
+        let restaurantItem = RestaurantItem(name: "Tanoshii", status: "open", sortings: sortings)
+        let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
+        assert(restaurantViewModel.restaurantName == "Tanoshii Sushi", "Given name is not matched")
+    }
+    
+    func testRestaurantRatingAvarage() {
+        // Check rating
+        var sortings = SortingValues()
+        sortings.ratingAverage = 4.5
+        let restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: sortings)
+        let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
+        assert(restaurantViewModel.ratingAvarage == 4.5, "Rating avarage is not correct")
+    }
+    
+    func testRestaurantFavourite() {
+        // Check favourite
+        let sortings = SortingValues()
+        var restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: sortings)
+        restaurantItem.isFavourite = true
+        let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
+        let favouriteValue = try! restaurantViewModel.isFavourite.value()
+        assert(favouriteValue == true, "Restaurant is not favourite")
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

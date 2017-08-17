@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FavouriteRestaurantsTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -38,6 +43,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>351582A47018C6D8C9F7A1555E24124D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3DEBAD2D6BA9CE4E1AB2366C88C67B7B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

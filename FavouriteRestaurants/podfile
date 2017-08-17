@@ -4,10 +4,14 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'FavouriteRestaurants' do
-pod 'Cosmos'
-pod 'RxSwift', '~> 3.0'
-pod 'RxCocoa', '~> 3.0'
-pod 'RealmSwift'
+    pod 'Cosmos'
+    pod 'RxSwift', '~> 3.0'
+    pod 'RxCocoa', '~> 3.0'
+    pod 'RealmSwift'
+
+    target 'FavouriteRestaurantsTests' do
+        inherit! :search_paths
+    end
 end
 
 
