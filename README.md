@@ -1,7 +1,5 @@
-Markdown Preview package
 
 # Takeaway
-Takeaway challange
 
 Thank you for this challange. It was really exciting to create a challange for Lieferando.
 I created this application with MVVM and I used lots of functional programming features as well as taken some advantage of using RxSwift and RxCocoa.
