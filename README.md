@@ -1,9 +1,6 @@
 
 
 # Project breakdown
-
-I always try to built any application OO approach. Because of that reason I separate all of the components for logical folder both hardware and IDE.
-
 Here is below my Xcode IDE project folder structure:
 
 **WebService**
