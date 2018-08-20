@@ -8,17 +8,16 @@
 
 import Foundation
 
-class WebServiceManager {
+struct RestaurantServiceProvider {
     
-    static var shared: WebServiceManager = WebServiceManager()
-    
+  
     /// This method request JSON file from local and gives list of RestaurantListViewModel
     ///
     /// - Parameters:
     ///   - path: Resource of local json file.
     ///   - completion: If parsing process complete successfully this callback gives list of RestaurantListViewModel
     ///   - failure: If there will be any parsing or naming issue happens this callback gets call.
-    func getRestaurants(path: String, completion: ([RestaurantListViewModel]) -> (), failure: (WebServiceErrorHandler) -> ()) {
+    func request(path: String, completion: ([RestaurantListViewModel]) -> (), failure: (RestaurantServiceError) -> ()) {
         
         if let jsonPathURL = Bundle.main.url(forResource: path, withExtension: "json") {
             guard let jsonData = try? Data(contentsOf: jsonPathURL, options: Data.ReadingOptions.mappedIfSafe) else {
@@ -62,23 +61,3 @@ class WebServiceManager {
 
 }
 
-// MARK - Error Handler
-
-enum WebServiceErrorHandler {
-    case invalidURLError
-    case noBundleExistError
-    case jsonParseError
-}
-
-extension WebServiceErrorHandler: CustomStringConvertible {
-    var description: String {
-        switch self {
-        case .invalidURLError:
-            return "URL path is invalid."
-        case .jsonParseError:
-            return "An error occured while parsing JSON file."
-        case .noBundleExistError:
-            return "There is no such a file"
-        }
-    }
-}

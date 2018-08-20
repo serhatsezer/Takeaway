@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B2D8658AE1969C629C10718CB8F713A7'
-               BlueprintName = 'RxCocoa'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RxCocoa.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E839F9357BD2A9708A6FC45B6E4591C2"
+               BlueprintName = "RxCocoa"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "RxCocoa.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

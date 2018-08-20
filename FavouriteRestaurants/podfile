@@ -5,9 +5,12 @@ use_frameworks!
 
 target 'FavouriteRestaurants' do
     pod 'Cosmos'
-    pod 'RxSwift', '~> 3.0'
-    pod 'RxCocoa', '~> 3.0'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'Moya/RxSwift'
     pod 'RealmSwift'
+    pod 'Quick'
+    pod 'Nimble'
 
     target 'FavouriteRestaurantsTests' do
         inherit! :search_paths

@@ -20,9 +20,9 @@ struct WebServiceLogger {
     ///   - message: Shows a given message to a user
     /// - Returns: Returns observable to stream it should be async.
     func log(file: String, line: Int, message: String) -> Observable<AnyObject?> {
-        print("Successfully logged : \(file) \(line) \(message)")
-        
-        return Observable.create({ observable -> Disposable in
+      print("Successfully logged : \(file) \(line) \(message)")
+      
+      return Observable.create({ observable -> Disposable in
             // Make dummy server request and then return completion block or signal to show a message.
             // Let assume it successfully sent service
             var fakeData: Data? = "An error occured while fetching resturants".data(using: .utf8)

@@ -11,13 +11,13 @@ import UIKit
 class RestaurantDetailController: UIViewController {
     
     // IB Outlets
-    @IBOutlet weak var addFavouriteButton: UIButton!
-    @IBOutlet weak var productsTableView: UITableView!
-    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak private var addFavouriteButton: UIButton!
+    @IBOutlet weak private var productsTableView: UITableView!
+    @IBOutlet weak private var restaurantName: UILabel!
     
     // View Models
-    var restaurantViewModel: RestaurantListViewModel?
-    let favouriteDataSource = FavouriteListDataSource()
+    public var restaurantViewModel: RestaurantListViewModel?
+    private let favouriteDataSource = FavouriteListDataSource()
     
     // Data Source
     let productListDataSource = RestaurantDetailDataSource(items: ["Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5", "Sample 6", "Sample 7", "Sample 8", "Sample 9", "Sample 10"], sections: ["pizza", "hamburger", "hot dog", "döner"])
