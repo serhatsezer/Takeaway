@@ -57,15 +57,18 @@ class RestaurantListViewModel: RestaurantListViewModelRepresantable {
   }
   
   var ratingAvarage: Double {
-    return model.sortingValues.ratingAverage
+    guard let sortingValues = model.sortingValues else { return 0.0 }
+    return sortingValues.ratingAverage
   }
   
   var deliveryCost: String {
-    return "Delivery(Min - Max) : \(model.sortingValues.deliveryCosts) - \(model.sortingValues.minCost)"
+    guard let sortingValues = model.sortingValues else { return "" }
+    return "Delivery(Min - Max) : \(sortingValues.deliveryCosts) - \(sortingValues.minCost)"
   }
   
   var distance: String {
-    let meter: Meter = Meter(model.sortingValues.distance)
+    guard let sortingValues = model.sortingValues else { return "" }
+    let meter: Meter = Meter(sortingValues.distance)
     return "Distance: \(meter.km) Kilometeres"
   }
   
@@ -74,6 +77,6 @@ class RestaurantListViewModel: RestaurantListViewModelRepresantable {
   }
   
   var sortings: SortingValues {
-    return model.sortingValues
+    return model.sortingValues!
   }
 }

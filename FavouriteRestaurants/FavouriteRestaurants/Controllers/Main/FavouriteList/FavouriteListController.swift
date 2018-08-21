@@ -30,7 +30,7 @@ class FavouriteListController: BaseController {
       return
     }
     switch identifier {
-    case "RestaurantDetailController":
+    case Defines.Segue.RestaurantDetailController.identifier:
       let detailController = segue.destination as! RestaurantDetailController
       let vm = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
       detailController.restaurantViewModel = vm
@@ -45,6 +45,7 @@ extension FavouriteListController {
     favouritesTableView.dataSource = self
     favouritesTableView.delegate = self
     favouritesTableView.tableFooterView = UIView()
+    favouritesTableView.reloadData()
   }
 }
 
