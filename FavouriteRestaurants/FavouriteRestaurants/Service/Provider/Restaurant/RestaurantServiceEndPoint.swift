@@ -18,7 +18,6 @@ private extension String {
 
 public enum RestaurantEndpoint {
   case allRestaurant
-  case favoriteRestaurant
 }
 
 extension RestaurantEndpoint: TargetType {
@@ -30,9 +29,7 @@ extension RestaurantEndpoint: TargetType {
   
   public var path: String {
     switch self {
-    case .allRestaurant:
-      return ""
-    case .favoriteRestaurant:
+    case .allRestaurant: // we don't need to use path for the app
       return ""
     }
   }

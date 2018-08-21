@@ -19,8 +19,8 @@ struct RestaurantServiceProvider: Requestable {
         do {
           let jsonDecoder = JSONDecoder()
           let restaurantModels = try jsonDecoder.decode([RestaurantItem].self, from: response.data, keyPath: "restaurants")
-          let viewModels = restaurantModels.map { RestaurantListViewModel(model: $0) }.sorted(by: { (rest1, rest2) -> Bool in
-            return rest1.restaurantName < rest2.restaurantName
+          let viewModels = restaurantModels.map { RestaurantListViewModel(model: $0) }.sorted(by: { (current, previous) -> Bool in
+            return current.restaurantName < previous.restaurantName
           })
           success(viewModels)
           

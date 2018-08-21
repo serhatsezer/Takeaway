@@ -9,18 +9,18 @@
 import Foundation
 
 struct Meter {
-    var value: Double
-    
-    init(_ value: Double) {
-        self.value = value
-    }
-    
-    var mm: Double { return value * 1000.0 }
-    var km: Double { return value / 1000.0 }
+  var value: Double
+  
+  init(_ value: Double) {
+    self.value = value
+  }
+  
+  var mm: Double { return value * 1000.0 }
+  var km: Double { return value / 1000.0 }
 }
 
 extension Meter: ExpressibleByFloatLiteral {
-    init(floatLiteral value: Double) {
-        self.value = value
-    }
+  init(floatLiteral value: Double) {
+    self.value = value
+  }
 }

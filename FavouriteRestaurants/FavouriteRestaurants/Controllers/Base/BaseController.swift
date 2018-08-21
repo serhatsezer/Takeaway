@@ -9,10 +9,10 @@
 import UIKit
 
 class BaseController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.titleView = UIImageView(image: UIImage(named:"lieferando_nav_logo"))
-
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationItem.titleView = UIImageView(image: UIImage(named:"lieferando_nav_logo"))
+    
+  }
 }

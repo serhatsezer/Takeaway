@@ -15,8 +15,6 @@ protocol Requestable {
   func request(_ endpoint: Request, success: @escaping (Response) -> Void, failure: @escaping (Failure) -> Void)
 }
 
-
-
 extension JSONDecoder {
   func decode<T: Decodable>(_ type: T.Type, from data: Data, keyPath: String) throws -> T {
     let toplevel = try JSONSerialization.jsonObject(with: data)
