@@ -21,7 +21,6 @@
 		0A2A38701F3B3D9300BFA696 /* RestaurantListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A386F1F3B3D9300BFA696 /* RestaurantListController.swift */; };
 		0A2A38751F3B3E9F00BFA696 /* RestaurantListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A38741F3B3E9F00BFA696 /* RestaurantListCell.swift */; };
 		0A3D2ECB1F3DD2E100DF86CC /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ECA1F3DD2E100DF86CC /* UIAlertController+Extensions.swift */; };
-		0A3D2ECE1F3DF4A500DF86CC /* FavouriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ECD1F3DF4A500DF86CC /* FavouriteItem.swift */; };
 		0A3D2ED51F3DFDF300DF86CC /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D2ED41F3DFDF300DF86CC /* FavouriteListController.swift */; };
 		0A41D1E31F40F5FE006E7A8A /* RestaurantDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41D1E21F40F5FE006E7A8A /* RestaurantDetailController.swift */; };
 		0A41D2111F41F9EB006E7A8A /* RestaurantListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */; };
@@ -37,6 +36,7 @@
 		0A9BBC51212C91C800B13363 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BBC50212C91C800B13363 /* AppCoordinator.swift */; };
 		0A9BBC54212C955F00B13363 /* FavouriteListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BBC53212C955F00B13363 /* FavouriteListCoordinator.swift */; };
 		0A9BBC57212C97E700B13363 /* RestaurantListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BBC56212C97E700B13363 /* RestaurantListCoordinator.swift */; };
+		0A9BBC5D212CD58500B13363 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BBC5C212CD58400B13363 /* PersistenceHelper.swift */; };
 		0AAD9B1D212B81600077C716 /* RestaurantServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B1C212B81600077C716 /* RestaurantServiceError.swift */; };
 		0AAD9B21212B88170077C716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B20212B88170077C716 /* Config.swift */; };
 		0AAD9B23212B8EF80077C716 /* RestaurantServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B22212B8EF80077C716 /* RestaurantServiceProvider.swift */; };
@@ -87,7 +87,6 @@
 		0A2A386F1F3B3D9300BFA696 /* RestaurantListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListController.swift; sourceTree = "<group>"; };
 		0A2A38741F3B3E9F00BFA696 /* RestaurantListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListCell.swift; sourceTree = "<group>"; };
 		0A3D2ECA1F3DD2E100DF86CC /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
-		0A3D2ECD1F3DF4A500DF86CC /* FavouriteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteItem.swift; sourceTree = "<group>"; };
 		0A3D2ED41F3DFDF300DF86CC /* FavouriteListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
 		0A41D1E21F40F5FE006E7A8A /* RestaurantDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailController.swift; sourceTree = "<group>"; };
 		0A41D2101F41F9EB006E7A8A /* RestaurantListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListDataSource.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		0A9BBC50212C91C800B13363 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0A9BBC53212C955F00B13363 /* FavouriteListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListCoordinator.swift; sourceTree = "<group>"; };
 		0A9BBC56212C97E700B13363 /* RestaurantListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListCoordinator.swift; sourceTree = "<group>"; };
+		0A9BBC5C212CD58400B13363 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		0AAD9B1C212B81600077C716 /* RestaurantServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantServiceError.swift; sourceTree = "<group>"; };
 		0AAD9B20212B88170077C716 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0AAD9B22212B8EF80077C716 /* RestaurantServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantServiceProvider.swift; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 				0A1A32AB1F3A08E00074C78B /* Controllers */,
 				0A54FE921F44B3F000DEA50D /* DataSource */,
 				0A67A9C01F3B50B50065C389 /* Extensions */,
+				0A9BBC5B212CD58400B13363 /* Helpers */,
 				0A2A385B1F3B325B00BFA696 /* Externals */,
 				0A1A32AF1F3A093A0074C78B /* UI */,
 				0A1A328B1F3A08A90074C78B /* AppDelegate.swift */,
@@ -326,7 +327,6 @@
 		0A2A38641F3B33C700BFA696 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0A3D2ECC1F3DF47500DF86CC /* FavouriteList */,
 				0A2A38651F3B33D400BFA696 /* RestaurantList */,
 			);
 			path = Main;
@@ -394,14 +394,6 @@
 				0A3D2ECA1F3DD2E100DF86CC /* UIAlertController+Extensions.swift */,
 			);
 			path = UIAlertController;
-			sourceTree = "<group>";
-		};
-		0A3D2ECC1F3DF47500DF86CC /* FavouriteList */ = {
-			isa = PBXGroup;
-			children = (
-				0A3D2ECD1F3DF4A500DF86CC /* FavouriteItem.swift */,
-			);
-			path = FavouriteList;
 			sourceTree = "<group>";
 		};
 		0A3D2ED31F3DFDCE00DF86CC /* FavouriteList */ = {
@@ -540,6 +532,15 @@
 			);
 			path = RestaurantList;
 			sourceTree = "<group>";
+		};
+		0A9BBC5B212CD58400B13363 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A9BBC5C212CD58400B13363 /* PersistenceHelper.swift */,
+			);
+			name = Helpers;
+			path = FavouriteRestaurants/Helpers;
+			sourceTree = SOURCE_ROOT;
 		};
 		0AAD9B12212B7E510077C716 /* Provider */ = {
 			isa = PBXGroup;
@@ -899,8 +900,8 @@
 				0AEC46AA1F3F052E001C54A0 /* FavouriteListCell.swift in Sources */,
 				0A9BBC54212C955F00B13363 /* FavouriteListCoordinator.swift in Sources */,
 				0A41D1E31F40F5FE006E7A8A /* RestaurantDetailController.swift in Sources */,
-				0A3D2ECE1F3DF4A500DF86CC /* FavouriteItem.swift in Sources */,
 				0A9BBC57212C97E700B13363 /* RestaurantListCoordinator.swift in Sources */,
+				0A9BBC5D212CD58500B13363 /* PersistenceHelper.swift in Sources */,
 				0A1CF8E31F4653F800B83C6A /* RestaurantDetailDataSource.swift in Sources */,
 				0AAD9B26212B905A0077C716 /* Requestable.swift in Sources */,
 				0A2A38751F3B3E9F00BFA696 /* RestaurantListCell.swift in Sources */,

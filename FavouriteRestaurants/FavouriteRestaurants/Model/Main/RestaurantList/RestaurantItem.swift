@@ -7,12 +7,26 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-struct RestaurantItem: Decodable {
-  let name: String
-  let status: String
-  var isFavourite: Bool = false
-  let sortingValues: SortingValues
+class RestaurantItem: Object, Codable {
+  @objc dynamic var name: String = ""
+  @objc dynamic var status: String = ""
+  @objc dynamic var isFavourite: Bool = false
+  @objc dynamic var sortingValues: SortingValues? = nil
+  
+  override static func primaryKey() -> String? {
+    return "name"
+  }
+  
+  convenience init(name: String, status: String, isFavourite: Bool, sorting: SortingValues) {
+    self.init()
+    self.name = name
+    self.status = status
+    self.isFavourite = isFavourite
+    self.sortingValues = sorting
+  }
   
   enum CodingKeys: String, CodingKey {
     case name = "name"
@@ -21,14 +35,29 @@ struct RestaurantItem: Decodable {
   }
 }
 
-struct SortingValues: Decodable {
-  let bestMatch: Double
-  let newest: Double
-  let ratingAverage: Double
-  let distance: Double
-  let popularity: Double
-  let averageProductPrice: Double
-  let deliveryCosts: Double
-  let minCost: Double
+
+
+class SortingValues: Object, Codable {
+  @objc dynamic var bestMatch: Double = 0.0
+  @objc dynamic var newest: Double = 0.0
+  @objc dynamic var ratingAverage: Double = 0.0
+  @objc dynamic var distance: Double = 0.0
+  @objc dynamic var popularity: Double = 0.0
+  @objc dynamic var averageProductPrice: Double = 0.0
+  @objc dynamic var deliveryCosts: Double = 0.0
+  @objc dynamic var minCost: Double = 0.0
+  
+  convenience init(bestMatch: Double, newest: Double, ratingAverage: Double, distance: Double, popularity: Double, averageProductPrice: Double, deliveryCosts: Double, minCost: Double) {
+    self.init()
+    self.bestMatch = bestMatch
+    self.newest = newest
+    self.ratingAverage = ratingAverage
+    self.distance = distance
+    self.popularity = popularity
+    self.averageProductPrice = averageProductPrice
+    self.deliveryCosts = deliveryCosts
+    self.minCost = minCost
+  }
+  
 }
 

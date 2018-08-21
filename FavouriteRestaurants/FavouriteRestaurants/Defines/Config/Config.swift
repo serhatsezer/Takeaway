@@ -14,4 +14,11 @@ struct Defines {
     static let restaurantsURL = URL(string: "https://raw.githubusercontent.com/serhatsezer/Takeaway/master/FavouriteRestaurants/FavouriteRestaurants/Externals/JSON/restaurants.json")!
     static let defaultHttpHeaders = [String: String]()
   }
+  
+  enum Segue: String {
+    case RestaurantDetailController
+    var identifier: String {
+      return self.rawValue
+    }
+  }
 }

@@ -62,7 +62,13 @@
                             <constraint firstAttribute="trailing" secondItem="dmA-gp-YQ5" secondAttribute="trailing" id="U4t-cJ-uDD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yhU-jf-TO2"/>
+                    <navigationItem key="navigationItem" id="yhU-jf-TO2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="5lf-8z-thL">
+                            <connections>
+                                <action selector="removeAllTapped:" destination="dBj-dy-OyC" id="Mi4-Nm-uV7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favouritesTableView" destination="dmA-gp-YQ5" id="F6F-zt-JbR"/>
                     </connections>
