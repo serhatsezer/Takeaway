@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class RestaurantItem: Object, Decodable {
+class RestaurantItem: Object, Codable {
   @objc dynamic var name: String = ""
   @objc dynamic var status: String = ""
   @objc dynamic var isFavourite: Bool = false
@@ -28,18 +28,6 @@ class RestaurantItem: Object, Decodable {
     self.sortingValues = sorting
   }
   
-  required init() {
-    super.init()
-  }
-  
-  required init(value: Any, schema: RLMSchema) {
-    super.init(value: value, schema: schema)
-  }
-  
-  required init(realm: RLMRealm, schema: RLMObjectSchema) {
-    super.init(realm: realm, schema: schema)
-  }
-  
   enum CodingKeys: String, CodingKey {
     case name = "name"
     case status = "status"
@@ -49,7 +37,7 @@ class RestaurantItem: Object, Decodable {
 
 
 
-class SortingValues: Object, Decodable {
+class SortingValues: Object, Codable {
   @objc dynamic var bestMatch: Double = 0.0
   @objc dynamic var newest: Double = 0.0
   @objc dynamic var ratingAverage: Double = 0.0
@@ -59,10 +47,6 @@ class SortingValues: Object, Decodable {
   @objc dynamic var deliveryCosts: Double = 0.0
   @objc dynamic var minCost: Double = 0.0
   
-  
-  override static func primaryKey() -> String? {
-    return nil
-  }
   convenience init(bestMatch: Double, newest: Double, ratingAverage: Double, distance: Double, popularity: Double, averageProductPrice: Double, deliveryCosts: Double, minCost: Double) {
     self.init()
     self.bestMatch = bestMatch
@@ -75,16 +59,5 @@ class SortingValues: Object, Decodable {
     self.minCost = minCost
   }
   
-  required init() {
-    super.init()
-  }
-  
-  required init(value: Any, schema: RLMSchema) {
-    super.init(value: value, schema: schema)
-  }
-  
-  required init(realm: RLMRealm, schema: RLMObjectSchema) {
-    super.init(realm: realm, schema: schema)
-  }
 }
 

@@ -32,6 +32,7 @@
 		0A67A9C31F3B51190065C389 /* Meter+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9C21F3B51190065C389 /* Meter+Double.swift */; };
 		0A67A9C71F3B55CE0065C389 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9C61F3B55CE0065C389 /* FloatingButton.swift */; };
 		0A67A9CA1F3B5A6C0065C389 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67A9C91F3B5A6C0065C389 /* UIColor+Extensions.swift */; };
+		0A9BBC5A212CC03300B13363 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BBC59212CC03300B13363 /* PersistenceHelper.swift */; };
 		0AAD9B1D212B81600077C716 /* RestaurantServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B1C212B81600077C716 /* RestaurantServiceError.swift */; };
 		0AAD9B21212B88170077C716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B20212B88170077C716 /* Config.swift */; };
 		0AAD9B23212B8EF80077C716 /* RestaurantServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD9B22212B8EF80077C716 /* RestaurantServiceProvider.swift */; };
@@ -93,6 +94,7 @@
 		0A67A9C21F3B51190065C389 /* Meter+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meter+Double.swift"; sourceTree = "<group>"; };
 		0A67A9C61F3B55CE0065C389 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		0A67A9C91F3B5A6C0065C389 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		0A9BBC59212CC03300B13363 /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		0AAD9B1C212B81600077C716 /* RestaurantServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantServiceError.swift; sourceTree = "<group>"; };
 		0AAD9B20212B88170077C716 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0AAD9B22212B8EF80077C716 /* RestaurantServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantServiceProvider.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				0A54FE921F44B3F000DEA50D /* DataSource */,
 				0A67A9C01F3B50B50065C389 /* Extensions */,
 				0A2A385B1F3B325B00BFA696 /* Externals */,
+				0A9BBC58212CBF0500B13363 /* Helpers */,
 				0A1A32AF1F3A093A0074C78B /* UI */,
 				0A1A328B1F3A08A90074C78B /* AppDelegate.swift */,
 				0A1A32971F3A08A90074C78B /* Info.plist */,
@@ -468,6 +471,14 @@
 				0A67A9C91F3B5A6C0065C389 /* UIColor+Extensions.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		0A9BBC58212CBF0500B13363 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A9BBC59212CC03300B13363 /* PersistenceHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0AAD9B12212B7E510077C716 /* Provider */ = {
@@ -824,6 +835,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3D2ECB1F3DD2E100DF86CC /* UIAlertController+Extensions.swift in Sources */,
+				0A9BBC5A212CC03300B13363 /* PersistenceHelper.swift in Sources */,
 				0AAD9B23212B8EF80077C716 /* RestaurantServiceProvider.swift in Sources */,
 				0A1A328C1F3A08A90074C78B /* AppDelegate.swift in Sources */,
 				0AEC46AA1F3F052E001C54A0 /* FavouriteListCell.swift in Sources */,

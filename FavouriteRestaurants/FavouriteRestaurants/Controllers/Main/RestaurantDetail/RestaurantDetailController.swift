@@ -25,15 +25,16 @@ class RestaurantDetailController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    guard let vm = restaurantViewModel else {
+    guard let viewModel = restaurantViewModel else {
       return
     }
     
-    let isFavourite = try! vm.isFavourite.value()
-    addFavouriteButton.isHidden = isFavourite
+    if let isFavourite = try? viewModel.isFavourite.value() {
+      addFavouriteButton.isHidden = isFavourite
+    }
     
-    self.title = vm.restaurantName
-    restaurantName.text = vm.restaurantName
+    self.title = viewModel.restaurantName
+    restaurantName.text = viewModel.restaurantName
     // configure table view
     configureTableView()
   }
@@ -44,13 +45,14 @@ class RestaurantDetailController: UIViewController {
   }
   
   @IBAction func addFavouriteTapped(_ sender: Any) {
-    guard let vm = restaurantViewModel else {
+    guard let viewModel = restaurantViewModel else {
       return
     }
-    vm.isFavourite.onNext(true)
-    favouriteDataSource.write(model: vm) {
-      let msgVC = UIAlertController.showAlert(message: "This restaurant added your favourite list.", buttonTitle: "OK")
-      present(msgVC, animated: true, completion: nil)
+    viewModel.isFavourite.onNext(true)
+    
+    PersistenceHelper.write(model: viewModel) {
+      let messageController = UIAlertController.showAlert(message: "This restaurant added your favourite list.", buttonTitle: "OK")
+      present(messageController, animated: true, completion: nil)
     }
   }
 }

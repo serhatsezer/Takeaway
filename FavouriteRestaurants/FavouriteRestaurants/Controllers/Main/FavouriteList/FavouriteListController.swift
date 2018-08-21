@@ -12,7 +12,7 @@ class FavouriteListController: BaseController {
   
   @IBOutlet weak var favouritesTableView: UITableView!
   
-  let favouriteDataSource = FavouriteListDataSource()
+  fileprivate let favouriteDataSource = FavouriteListDataSource()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +25,16 @@ class FavouriteListController: BaseController {
     configureTableView()
   }
   
+  @IBAction func removeAllTapped(_ sender: UIBarButtonItem) {
+    PersistenceHelper.removeAllItems(success: {
+      let messageController = UIAlertController.showAlert(message: "All items are deleted!", buttonTitle: "OK")
+      present(messageController, animated: true, completion: nil)
+    }) { error in
+      let messageController = UIAlertController.showAlert(message: error.localizedDescription, buttonTitle: "OK")
+      present(messageController, animated: true, completion: nil)
+    }
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifier = segue.identifier else {
       return
@@ -32,8 +42,8 @@ class FavouriteListController: BaseController {
     switch identifier {
     case Defines.Segue.RestaurantDetailController.identifier:
       let detailController = segue.destination as! RestaurantDetailController
-      let vm = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
-      detailController.restaurantViewModel = vm
+      let viewModel = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
+      detailController.restaurantViewModel = viewModel
     default:
       break
     }
