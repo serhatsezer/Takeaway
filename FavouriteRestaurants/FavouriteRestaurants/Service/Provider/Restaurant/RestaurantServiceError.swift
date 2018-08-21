@@ -11,8 +11,8 @@ import Foundation
 // MARK - Error Handler
 enum RestaurantServiceError: Error {
   case invalidURLError
-  case noBundleExistError
   case jsonParseError
+  case errorWithDescription(String)
 }
 
 extension RestaurantServiceError: CustomStringConvertible {
@@ -22,8 +22,8 @@ extension RestaurantServiceError: CustomStringConvertible {
       return "URL path is invalid."
     case .jsonParseError:
       return "An error occured while parsing JSON file."
-    case .noBundleExistError:
-      return "There is no such a file"
+    case .errorWithDescription(let desc):
+      return desc
     }
   }
 }

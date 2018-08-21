@@ -9,11 +9,12 @@ target 'FavouriteRestaurants' do
     pod 'RxCocoa'
     pod 'Moya/RxSwift'
     pod 'RealmSwift'
-    pod 'Quick'
-    pod 'Nimble'
 
     target 'FavouriteRestaurantsTests' do
         inherit! :search_paths
+        
+        pod 'Quick'
+        pod 'Nimble'
     end
 end
 

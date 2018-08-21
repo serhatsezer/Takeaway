@@ -37,43 +37,43 @@ protocol RestaurantListViewModelRepresantable: class {
 }
 
 class RestaurantListViewModel: RestaurantListViewModelRepresantable {
-    
-    fileprivate var model: RestaurantItem!
-    fileprivate let disposeBag = DisposeBag()
-
-    var isFavourite: BehaviorSubject<Bool>
-    
-    init(model: RestaurantItem) {
-        self.model = model
-        
-        isFavourite = BehaviorSubject<Bool>(value: self.model.isFavourite)
-        isFavourite.subscribe(onNext: { favourite in
-            self.model.isFavourite = favourite
-        }).addDisposableTo(disposeBag)
-    }
-    
-    var restaurantName: String {
-        return model.name
-    }
-    
-    var ratingAvarage: Double {
-        return model.sortingValues.ratingAverage
-    }
-    
-    var deliveryCost: String {
-        return "Delivery(Min - Max) : \(model.sortingValues.deliveryCosts) - \(model.sortingValues.minCost)"
-    }
   
-    var distance: String {
-        let meter: Meter = Meter(model.sortingValues.distance)
-        return "Distance: \(meter.km) Kilometeres"
-    }
+  fileprivate var model: RestaurantItem!
+  fileprivate let disposeBag = DisposeBag()
   
-    var restaurantStatus: String {
-       return model.status
-    }
+  var isFavourite: BehaviorSubject<Bool>
+  
+  init(model: RestaurantItem) {
+    self.model = model
     
-    var sortings: SortingValues {
-        return model.sortingValues
-    }
+    isFavourite = BehaviorSubject<Bool>(value: self.model.isFavourite)
+    isFavourite.subscribe(onNext: { favourite in
+      self.model.isFavourite = favourite
+    }).addDisposableTo(disposeBag)
+  }
+  
+  var restaurantName: String {
+    return model.name
+  }
+  
+  var ratingAvarage: Double {
+    return model.sortingValues.ratingAverage
+  }
+  
+  var deliveryCost: String {
+    return "Delivery(Min - Max) : \(model.sortingValues.deliveryCosts) - \(model.sortingValues.minCost)"
+  }
+  
+  var distance: String {
+    let meter: Meter = Meter(model.sortingValues.distance)
+    return "Distance: \(meter.km) Kilometeres"
+  }
+  
+  var restaurantStatus: String {
+    return model.status
+  }
+  
+  var sortings: SortingValues {
+    return model.sortingValues
+  }
 }

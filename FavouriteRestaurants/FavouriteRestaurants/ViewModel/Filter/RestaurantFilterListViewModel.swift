@@ -32,33 +32,33 @@ protocol RestaurantFilterListViewModelRepresentable {
 }
 
 struct RestaurantFilterListViewModel: RestaurantFilterListViewModelRepresentable {
-    fileprivate var filterItems = [FilterItem]()
-    
-    init(titles: [FilterItem]) {
-        self.filterItems = titles
-    }
+  fileprivate var filterItems = [FilterItem]()
   
-    func getTitle(indexPath: IndexPath) -> String {
-        guard indexPath.row > filterItems.count else {
-            return ""
-        }
-        let filterItem = filterItems[indexPath.row]
-        return filterItem.filterName
-    }
+  init(titles: [FilterItem]) {
+    self.filterItems = titles
+  }
   
-    func getImagePath(indexPath: IndexPath) -> String {
-        guard indexPath.row > filterItems.count else {
-            return ""
-        }
-        let filterItem = filterItems[indexPath.row]
-        return filterItem.imagePath
+  func getTitle(indexPath: IndexPath) -> String {
+    guard indexPath.row > filterItems.count else {
+      return ""
     }
+    let filterItem = filterItems[indexPath.row]
+    return filterItem.filterName
+  }
   
-    func getFilter(indexPath: IndexPath) -> FilterItem {
-        return filterItems[indexPath.row]
+  func getImagePath(indexPath: IndexPath) -> String {
+    guard indexPath.row > filterItems.count else {
+      return ""
     }
-    
-    var count: Int {
-        return filterItems.count
-    }
+    let filterItem = filterItems[indexPath.row]
+    return filterItem.imagePath
+  }
+  
+  func getFilter(indexPath: IndexPath) -> FilterItem {
+    return filterItems[indexPath.row]
+  }
+  
+  var count: Int {
+    return filterItems.count
+  }
 }
