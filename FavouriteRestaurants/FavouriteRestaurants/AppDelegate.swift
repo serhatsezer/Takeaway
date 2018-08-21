@@ -12,10 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  
+  private var appCoordinator: AppCoordinator? 
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    ThemeManager.appDefault()
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    let appCoordinator = AppCoordinator(window: window)
+    
+    self.window = window
+    self.appCoordinator = appCoordinator
+    appCoordinator.start()
+    
     return true
   }
   

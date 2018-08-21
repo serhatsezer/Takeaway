@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol RestaurantListControllerDelegate: class {
+  func restaurantItemSelected(viewModel: RestaurantListViewModel)
+}
+
 class RestaurantListController: BaseController {
   
   // IB Outlets
@@ -27,6 +31,9 @@ class RestaurantListController: BaseController {
   
   // Transition
   fileprivate let transition = CircularTransition()
+  
+  // Delegation
+  public weak var delegate: RestaurantListControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,10 +55,6 @@ class RestaurantListController: BaseController {
       filterController.filterDelegate = self
       filterController.transitioningDelegate = self
       filterController.modalPresentationStyle = .custom
-    case "RestaurantDetailController":
-      if let navTopItem = segue.destination as? RestaurantDetailController {
-        navTopItem.restaurantViewModel = dataSource.item(at: restaurantsTableView.indexPathForSelectedRow!)
-      }
     default:
       break
     }
@@ -97,6 +100,9 @@ extension RestaurantListController: UITableViewDataSource {
 extension RestaurantListController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+
+    let selectedViewModel = dataSource.item(at: indexPath)
+    delegate?.restaurantItemSelected(viewModel: selectedViewModel)
   }
 }
 
@@ -123,7 +129,6 @@ extension RestaurantListController: RestaurantFilterControllerDelegate {
 
 // MARK: - Animation Transition
 extension RestaurantListController: UIViewControllerTransitioningDelegate {
-  
   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     transition.transitionMode = .dismiss
     transition.startingPoint = floatingButton.center

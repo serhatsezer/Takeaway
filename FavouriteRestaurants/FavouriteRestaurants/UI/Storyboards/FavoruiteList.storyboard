@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qwl-GR-Ej0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qwl-GR-Ej0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" text="Restaurant name " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzv-bP-Jcr">
-                                                    <rect key="frame" x="16" y="15" width="351" height="19.5"/>
+                                                    <rect key="frame" x="23" y="18" width="344" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -49,7 +49,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="restaurantNameLabel" destination="Fzv-bP-Jcr" id="AdZ-4c-xcs"/>
-                                            <segue destination="WH5-VN-UR7" kind="show" identifier="RestaurantDetailController" id="dL9-V5-42c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,22 +71,14 @@
             </objects>
             <point key="canvasLocation" x="2013.75" y="912.67605633802816"/>
         </scene>
-        <!--RestaurantDetail-->
-        <scene sceneID="V1H-Ag-A2O">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RestaurantDetail" referencedIdentifier="RestaurantDetail" id="WH5-VN-UR7" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Dm-jo-bra" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2849" y="972"/>
-        </scene>
         <!--Favourites-->
         <scene sceneID="8Pr-ef-11e">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qwl-GR-Ej0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FavouriteListNavigationIdentifier" automaticallyAdjustsScrollViewInsets="NO" id="qwl-GR-Ej0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favourites" image="main_favorites_selected" id="VWe-UK-hmn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Vq-knM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
