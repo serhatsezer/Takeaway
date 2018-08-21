@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 struct RestaurantListDataSource {
-    fileprivate var items: [RestaurantListViewModel]!
+    fileprivate var items = [RestaurantListViewModel]()
     
     init(items: [RestaurantListViewModel]) {
         self.items = items

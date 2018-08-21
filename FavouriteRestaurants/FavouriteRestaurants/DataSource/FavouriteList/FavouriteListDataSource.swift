@@ -17,14 +17,15 @@ struct FavouriteListDataSource {
     /// - Parameter indexPath: Given IndexPath value from table view
     /// - Returns: Returns optional view model if requested item already exist in database
     func fetchItem(indexPath: IndexPath) -> RestaurantListViewModel? {
-        let fetchedItems = realm.objects(FavouriteItem.self)
-        guard indexPath.row < fetchedItems.count else {
-            return nil
-        }
-        let favItem = fetchedItems[indexPath.row]
-        let resItem = RestaurantItem(name: favItem.name, status: favItem.status, sortings: SortingValues())
-        let viewModel = RestaurantListViewModel(model: resItem)
-        return viewModel
+//        let fetchedItems = realm.objects(FavouriteItem.self)
+//        guard indexPath.row < fetchedItems.count else {
+//            return nil
+//        }
+//        let favItem = fetchedItems[indexPath.row]
+//        let resItem = RestaurantItem(name: favItem.name, status: favItem.status, sortings: SortingValues())
+//        let viewModel = RestaurantListViewModel(model: resItem)
+//        return viewModel
+      return nil
     }
     
     /// Returns total count of favourite item
