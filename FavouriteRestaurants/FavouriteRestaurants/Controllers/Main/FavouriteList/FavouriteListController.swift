@@ -84,11 +84,7 @@ extension FavouriteListController {
   }
   
   func checkDataStatus() {
-    if favouriteDataSource.count == 0 {
-      self.state = .noData
-    } else {
-      self.state = .loaded
-    }
+    self.state = favouriteDataSource.count == 0 ? .noData : .loaded
     favouritesTableView.reloadData()
   }
 }
