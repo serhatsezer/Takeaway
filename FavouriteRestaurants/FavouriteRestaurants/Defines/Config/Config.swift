@@ -17,6 +17,7 @@ struct Defines {
   
   enum Segue: String {
     case RestaurantDetailController
+    case RestaurantFilterController
     var identifier: String {
       return self.rawValue
     }

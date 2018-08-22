@@ -44,13 +44,18 @@ class RestaurantListController: BaseController {
     callWebService()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    restaurantsTableView.reloadData()
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifier = segue.identifier else {
       return
     }
     
     switch identifier {
-    case "RestaurantFilterController":
+    case Defines.Segue.RestaurantFilterController.identifier:
       let filterController = segue.destination as! RestaurantFilterController
       filterController.filterDelegate = self
       filterController.transitioningDelegate = self

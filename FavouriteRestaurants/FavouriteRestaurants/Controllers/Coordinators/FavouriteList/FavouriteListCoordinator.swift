@@ -14,9 +14,20 @@ class FavouriteListCoordinator: Coordinator {
     return storyboard
   }()
   
+  fileprivate var detailCoordinator: RestaurantDetailCoordinator?
+  
   init() {
   }
   
   func start() {
+    let favouriteController = rootViewController.topViewController as! FavouriteListController
+    favouriteController.delegate = self
+  }
+}
+
+extension FavouriteListCoordinator: FavouriteListControllerDelegate {
+  func favouriteRestaurantSelected(viewModel: RestaurantListViewModel) {
+    detailCoordinator = RestaurantDetailCoordinator(presenter: rootViewController, viewModel: viewModel)
+    detailCoordinator?.start()
   }
 }

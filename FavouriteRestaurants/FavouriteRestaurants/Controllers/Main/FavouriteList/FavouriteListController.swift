@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol FavouriteListControllerDelegate: class {
+  func favouriteRestaurantSelected(viewModel: RestaurantListViewModel)
+}
+
 class FavouriteListController: BaseController {
   
-  @IBOutlet weak var favouritesTableView: UITableView!
+  @IBOutlet weak fileprivate var favouritesTableView: UITableView!
   
   fileprivate let favouriteDataSource = FavouriteListDataSource()
+  weak var delegate: FavouriteListControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,20 +37,6 @@ class FavouriteListController: BaseController {
     }) { error in
       let messageController = UIAlertController.showAlert(message: error.localizedDescription, buttonTitle: "OK")
       present(messageController, animated: true, completion: nil)
-    }
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let identifier = segue.identifier else {
-      return
-    }
-    switch identifier {
-    case Defines.Segue.RestaurantDetailController.identifier:
-      let detailController = segue.destination as! RestaurantDetailController
-      let viewModel = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
-      detailController.restaurantViewModel = viewModel
-    default:
-      break
     }
   }
 }
@@ -74,5 +65,7 @@ extension FavouriteListController: UITableViewDataSource {
 extension FavouriteListController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let viewModel = favouriteDataSource.fetchItem(indexPath: indexPath)!
+    delegate?.favouriteRestaurantSelected(viewModel: viewModel)
   }
 }
