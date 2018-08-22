@@ -20,11 +20,10 @@ class RestaurantItem: Object, Codable {
     return "name"
   }
   
-  convenience init(name: String, status: String, isFavourite: Bool, sorting: SortingValues) {
+  convenience init(name: String, status: String, sorting: SortingValues) {
     self.init()
     self.name = name
     self.status = status
-    self.isFavourite = isFavourite
     self.sortingValues = sorting
   }
   

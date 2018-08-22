@@ -24,18 +24,19 @@ class FavouriteRestaurantsTests: XCTestCase {
   //- RestaurantListViewModel tests
   func testRestaurantName() {
     // Check name
+    let name = "Tanoshii Sushi"
+    let expected = "open"
     let sortings = SortingValues()
-    let name = "Tanoshii"
-    let restaurantItem = RestaurantItem(name: name, status: "open", sortings: sortings)
+    let restaurantItem = RestaurantItem(name: name, status: expected, sorting: sortings)
     let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
     assert(restaurantViewModel.restaurantName == "Tanoshii Sushi", "Given name is not matched")
   }
   
   func testRestaurantRatingAvarage() {
     // Check rating
-    var sortings = SortingValues()
-    sortings.ratingAverage = 4.0
-    let restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: sortings)
+    let sortings = SortingValues()
+    sortings.ratingAverage = 4.5
+    let restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sorting: sortings)
     let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
     assert(restaurantViewModel.ratingAvarage == 4.5, "Rating avarage is not passed")
   }
@@ -43,7 +44,7 @@ class FavouriteRestaurantsTests: XCTestCase {
   func testRestaurantFavourite() {
     // Check favourite
     let sortings = SortingValues()
-    var restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: sortings)
+    let restaurantItem = RestaurantItem(name: "Tanoshii Sushi", status: "open", sorting: sortings)
     restaurantItem.isFavourite = true
     let restaurantViewModel = RestaurantListViewModel(model: restaurantItem)
     let favouriteValue = try! restaurantViewModel.isFavourite.value()
@@ -54,9 +55,9 @@ class FavouriteRestaurantsTests: XCTestCase {
   //- RestaurantListDataSource tests
   func testDataSourceCount() {
     // test restaurant data count
-    let vm1 = RestaurantListViewModel(model: RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: SortingValues()))
-    let vm2 = RestaurantListViewModel(model: RestaurantItem(name: "Tandoori Express", status: "closed", sortings: SortingValues()))
-    let vm3 = RestaurantListViewModel(model: RestaurantItem(name: "Royal Thai", status: "order ahead", sortings: SortingValues()))
+    let vm1 = RestaurantListViewModel(model: RestaurantItem(name: "Tanoshii Sushi", status: "open", sorting: SortingValues()))
+    let vm2 = RestaurantListViewModel(model: RestaurantItem(name: "Tandoori Express", status: "closed", sorting: SortingValues()))
+    let vm3 = RestaurantListViewModel(model: RestaurantItem(name: "Royal Thai", status: "order ahead", sorting: SortingValues()))
     
     let viewModels: [RestaurantListViewModel] = [vm1, vm2, vm3]
     let restaurantListDataSource = RestaurantListDataSource(items: viewModels)
@@ -65,28 +66,17 @@ class FavouriteRestaurantsTests: XCTestCase {
   
   func testDataSourceFetchItem() {
     // test restaurant data count
-    let vm1 = RestaurantListViewModel(model: RestaurantItem(name: "Tanoshii Sushi", status: "open", sortings: SortingValues()))
-    let vm2 = RestaurantListViewModel(model: RestaurantItem(name: "Tandoori Express", status: "closed", sortings: SortingValues()))
-    let vm3 = RestaurantListViewModel(model: RestaurantItem(name: "Royal Thai", status: "order ahead", sortings: SortingValues()))
+    let sortings = SortingValues()
+    let firstViewModel = RestaurantListViewModel(model: RestaurantItem(name: "Tanoshii Sushi", status: "open", sorting: sortings))
+    let secondViewModel = RestaurantListViewModel(model: RestaurantItem(name: "Tandoori Express", status: "closed", sorting: sortings))
+    let thirdViewModel = RestaurantListViewModel(model: RestaurantItem(name: "Royal Thai", status: "order ahead", sorting: sortings))
     
-    let viewModels: [RestaurantListViewModel] = [vm1, vm2, vm3]
+    let viewModels: [RestaurantListViewModel] = [firstViewModel, secondViewModel, thirdViewModel]
     let restaurantListDataSource = RestaurantListDataSource(items: viewModels)
     let firstItemIndexPath = IndexPath(row: 0, section: 0)
     let restaurantItem = restaurantListDataSource.item(at: firstItemIndexPath)
     assert(restaurantItem.restaurantStatus == "open", "Restaurant status is not passed.")
     
-  }
-  
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-  }
-  
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
   }
   
 }
