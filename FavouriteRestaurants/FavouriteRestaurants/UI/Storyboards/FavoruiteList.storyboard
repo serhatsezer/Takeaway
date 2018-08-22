@@ -22,6 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-9m-PzF">
+                                <rect key="frame" x="20" y="322" width="335" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmA-gp-YQ5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,6 +66,10 @@
                             <constraint firstItem="dmA-gp-YQ5" firstAttribute="leading" secondItem="fwZ-qJ-lOy" secondAttribute="leading" id="KL9-bC-rTr"/>
                             <constraint firstItem="dLZ-TE-Qnm" firstAttribute="top" secondItem="dmA-gp-YQ5" secondAttribute="bottom" id="Q9B-gt-Ecn"/>
                             <constraint firstAttribute="trailing" secondItem="dmA-gp-YQ5" secondAttribute="trailing" id="U4t-cJ-uDD"/>
+                            <constraint firstItem="QzT-9m-PzF" firstAttribute="centerY" secondItem="fwZ-qJ-lOy" secondAttribute="centerY" id="XLK-ZH-5ff"/>
+                            <constraint firstItem="QzT-9m-PzF" firstAttribute="leading" secondItem="fwZ-qJ-lOy" secondAttribute="leading" constant="20" id="hyc-gG-9hq"/>
+                            <constraint firstItem="QzT-9m-PzF" firstAttribute="centerX" secondItem="fwZ-qJ-lOy" secondAttribute="centerX" id="lE2-7O-B5y"/>
+                            <constraint firstAttribute="trailing" secondItem="QzT-9m-PzF" secondAttribute="trailing" constant="20" id="yAJ-xH-M5Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yhU-jf-TO2">
@@ -71,6 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="favouritesTableView" destination="dmA-gp-YQ5" id="F6F-zt-JbR"/>
+                        <outlet property="stateLabel" destination="QzT-9m-PzF" id="3dY-jz-Em6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7w3-kc-eQX" userLabel="First Responder" sceneMemberID="firstResponder"/>

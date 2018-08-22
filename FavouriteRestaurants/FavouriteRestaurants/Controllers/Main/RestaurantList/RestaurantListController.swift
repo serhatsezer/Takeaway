@@ -14,6 +14,13 @@ protocol RestaurantListControllerDelegate: class {
   func restaurantItemSelected(viewModel: RestaurantListViewModel)
 }
 
+internal enum SearchControllerState {
+  case loading
+  case loaded
+  case noData
+  case error(description: String)
+}
+
 class RestaurantListController: BaseController {
   
   // IB Outlets
@@ -21,12 +28,37 @@ class RestaurantListController: BaseController {
   @IBOutlet weak fileprivate var searchBar: UISearchBar!
   @IBOutlet weak fileprivate var floatingButton: FloatingButton!
   
+  @IBOutlet weak fileprivate var stateLabel: UILabel!
   fileprivate let disposeBag = DisposeBag()
+  
+  /// This state holds controller state to hide or show error label
+  fileprivate var state: SearchControllerState = .loading {
+    didSet {
+      switch state {
+      case .loading:
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "Loading..."
+        self.restaurantsTableView.isHidden = true
+      case .loaded:
+        self.stateLabel.isHidden = true
+        self.restaurantsTableView.isHidden = false
+        self.restaurantsTableView.reloadData()
+      case .noData:
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "There are no data to show."
+        self.restaurantsTableView.isHidden = true
+      case .error(let description):
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "Error \(description)"
+        self.restaurantsTableView.isHidden = true
+      }
+    }
+  }
   
   // DataSource
   fileprivate var dataSource: RestaurantListDataSource = {
-    let ds = RestaurantListDataSource(items: [])
-    return ds
+    let dataSource = RestaurantListDataSource(items: [])
+    return dataSource
   }()
   
   // Transition
@@ -38,10 +70,17 @@ class RestaurantListController: BaseController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // add observer for navigation bar
+    addObserverForNavigationBar()
     // set delegate and datasource and configure cells.
     configureTableView()
     // call web service depending on need (viewWillAppear or viewDidAppear)
     callWebService()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    restaurantsTableView.reloadData()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,7 +89,7 @@ class RestaurantListController: BaseController {
     }
     
     switch identifier {
-    case "RestaurantFilterController":
+    case Defines.Segue.RestaurantFilterController.identifier:
       let filterController = segue.destination as! RestaurantFilterController
       filterController.filterDelegate = self
       filterController.transitioningDelegate = self
@@ -64,13 +103,12 @@ class RestaurantListController: BaseController {
 extension RestaurantListController {
   
   func callWebService() {
+    self.state = .loading
     RestaurantServiceProvider().request(.allRestaurant, success: { viewModels in
       self.dataSource = RestaurantListDataSource(items: viewModels)
-      DispatchQueue.main.async {
-        self.restaurantsTableView.reloadData()
-      }
+      self.state = .loaded
     }) { restaurantServiceError in
-      print(restaurantServiceError.localizedDescription)
+      self.state = .error(description: restaurantServiceError.localizedDescription)
     }
   }
   
@@ -79,7 +117,21 @@ extension RestaurantListController {
     restaurantsTableView.dataSource = self
     restaurantsTableView.rowHeight = UITableViewAutomaticDimension
     restaurantsTableView.estimatedRowHeight = RestaurantListCell.defaultHeight
-    searchBar.delegate = self
+  }
+  
+  func addObserverForNavigationBar() {
+    searchBar
+      .rx
+      .text
+      .orEmpty
+      .debounce(Defines.Config.DebounceInterval, scheduler: MainScheduler.instance) // It will wait 0.5 for changes.
+      .distinctUntilChanged()
+      .subscribe(onNext: { [unowned self] query in
+        let search = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard query.count > 0 else {
+          return
+        }
+      }).disposed(by: disposeBag)
   }
 }
 
@@ -103,17 +155,6 @@ extension RestaurantListController: UITableViewDelegate {
 
     let selectedViewModel = dataSource.item(at: indexPath)
     delegate?.restaurantItemSelected(viewModel: selectedViewModel)
-  }
-}
-
-// MARK: - SearchBar Delegate
-extension RestaurantListController: UISearchBarDelegate {
-  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //        let searchedArr = restaurants.filter { restaurant -> Bool in
-    //            return restaurant.name.lowercased().contains(searchText.lowercased())
-    //        }
-    //        predicatedRestaurants  = searchText.isEmpty ? restaurants : searchedArr
-    //        restaurantsTableView.reloadData()
   }
 }
 
@@ -142,6 +183,4 @@ extension RestaurantListController: UIViewControllerTransitioningDelegate {
     transition.circleColor = floatingButton.backgroundColor!
     return transition
   }
-  
 }
-

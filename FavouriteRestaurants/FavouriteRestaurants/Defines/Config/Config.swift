@@ -13,10 +13,12 @@ struct Defines {
     // For to get benifet from Moya I had to use github URL 
     static let restaurantsURL = URL(string: "https://raw.githubusercontent.com/serhatsezer/Takeaway/master/FavouriteRestaurants/FavouriteRestaurants/Externals/JSON/restaurants.json")!
     static let defaultHttpHeaders = [String: String]()
+    static let DebounceInterval = 1.0
   }
   
   enum Segue: String {
     case RestaurantDetailController
+    case RestaurantFilterController
     var identifier: String {
       return self.rawValue
     }

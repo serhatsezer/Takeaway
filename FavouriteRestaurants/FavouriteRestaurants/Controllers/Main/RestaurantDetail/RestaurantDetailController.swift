@@ -50,10 +50,16 @@ class RestaurantDetailController: UIViewController {
     }
     viewModel.isFavourite.onNext(true)
     
-    PersistenceHelper.write(model: viewModel) {
-      let messageController = UIAlertController.showAlert(message: "This restaurant added your favourite list.", buttonTitle: "OK")
-      present(messageController, animated: true, completion: nil)
+    PersistenceHelper.write(model: viewModel, success: {
+      self.showError(message: "Successfully added to favourite list.")
+    }) { error in
+      self.showError(message: "Error occured: \(error.localizedDescription)")
     }
+  }
+  
+  private func showError(message: String) {
+    let messageController = UIAlertController.showAlert(message: message, buttonTitle: "OK")
+    present(messageController, animated: true, completion: nil)
   }
 }
 

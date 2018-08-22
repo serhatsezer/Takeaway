@@ -8,18 +8,56 @@
 
 import UIKit
 
+protocol FavouriteListControllerDelegate: class {
+  func favouriteRestaurantSelected(viewModel: RestaurantListViewModel)
+}
+
+internal enum FavouriteControllerState {
+  case loading
+  case loaded
+  case noData
+  case error(description: String)
+}
+
 class FavouriteListController: BaseController {
   
-  @IBOutlet weak var favouritesTableView: UITableView!
+  @IBOutlet weak fileprivate var favouritesTableView: UITableView!
   
+  @IBOutlet weak private var stateLabel: UILabel!
   fileprivate let favouriteDataSource = FavouriteListDataSource()
+  weak var delegate: FavouriteListControllerDelegate?
   
+  fileprivate var state: FavouriteControllerState = .loading {
+    didSet {
+      switch state {
+      case .loading:
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "Loading..."
+        self.favouritesTableView.isHidden = true
+      case .loaded:
+        self.stateLabel.isHidden = true
+        self.favouritesTableView.isHidden = false
+        self.favouritesTableView.reloadData()
+      case .noData:
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "There are no data to show."
+        self.favouritesTableView.isHidden = true
+      case .error(let description):
+        self.stateLabel.isHidden = false
+        self.stateLabel.text = "Error \(description)"
+        self.favouritesTableView.isHidden = true
+      }
+    }
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    // check data status
+    checkDataStatus()
     
     // configure tableview
     configureTableView()
@@ -29,23 +67,11 @@ class FavouriteListController: BaseController {
     PersistenceHelper.removeAllItems(success: {
       let messageController = UIAlertController.showAlert(message: "All items are deleted!", buttonTitle: "OK")
       present(messageController, animated: true, completion: nil)
+      self.state = .noData
     }) { error in
       let messageController = UIAlertController.showAlert(message: error.localizedDescription, buttonTitle: "OK")
       present(messageController, animated: true, completion: nil)
-    }
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let identifier = segue.identifier else {
-      return
-    }
-    switch identifier {
-    case Defines.Segue.RestaurantDetailController.identifier:
-      let detailController = segue.destination as! RestaurantDetailController
-      let viewModel = favouriteDataSource.fetchItem(indexPath: favouritesTableView.indexPathForSelectedRow!)
-      detailController.restaurantViewModel = viewModel
-    default:
-      break
+      self.state = .error(description: error.localizedDescription)
     }
   }
 }
@@ -55,6 +81,14 @@ extension FavouriteListController {
     favouritesTableView.dataSource = self
     favouritesTableView.delegate = self
     favouritesTableView.tableFooterView = UIView()
+  }
+  
+  func checkDataStatus() {
+    if favouriteDataSource.count == 0 {
+      self.state = .noData
+    } else {
+      self.state = .loaded
+    }
     favouritesTableView.reloadData()
   }
 }
@@ -74,5 +108,7 @@ extension FavouriteListController: UITableViewDataSource {
 extension FavouriteListController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let viewModel = favouriteDataSource.fetchItem(indexPath: indexPath)!
+    delegate?.favouriteRestaurantSelected(viewModel: viewModel)
   }
 }

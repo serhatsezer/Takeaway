@@ -25,7 +25,6 @@ class FavouriteListDataSource: FavouriteListDataSourceRepresantable {
   
   func fetchItem(indexPath: IndexPath) -> RestaurantListViewModel? {
     let fetchedAllItems = PersistenceHelper.fetchAllItems()
-    print("fetching item count: \(fetchedAllItems.count)")
     guard indexPath.row < fetchedAllItems.count else {
       return nil
     }
