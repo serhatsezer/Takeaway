@@ -22,6 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mib-fv-ljd">
+                                <rect key="frame" x="20" y="322" width="335" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-H8-TYZ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,12 +132,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mib-fv-ljd" firstAttribute="centerY" secondItem="yaN-TA-6yh" secondAttribute="centerY" id="3yl-83-4Vw"/>
                             <constraint firstItem="cKq-H8-TYZ" firstAttribute="leading" secondItem="yaN-TA-6yh" secondAttribute="leading" id="4nD-nr-CYK"/>
                             <constraint firstItem="SG4-6E-DZj" firstAttribute="top" secondItem="wUv-gV-xSk" secondAttribute="bottom" constant="8" id="HJe-aE-MhH"/>
                             <constraint firstItem="SG4-6E-DZj" firstAttribute="top" secondItem="cKq-H8-TYZ" secondAttribute="bottom" id="KYg-oW-PNQ"/>
+                            <constraint firstAttribute="trailing" secondItem="mib-fv-ljd" secondAttribute="trailing" constant="20" id="LxA-ZN-kvE"/>
                             <constraint firstItem="wUv-gV-xSk" firstAttribute="trailing" secondItem="yaN-TA-6yh" secondAttribute="trailingMargin" id="N3y-Lk-Ujf"/>
+                            <constraint firstItem="mib-fv-ljd" firstAttribute="centerX" secondItem="yaN-TA-6yh" secondAttribute="centerX" id="aLX-DV-0SN"/>
                             <constraint firstItem="cKq-H8-TYZ" firstAttribute="top" secondItem="zun-dq-wIW" secondAttribute="bottom" id="iNb-d7-x2B"/>
                             <constraint firstAttribute="trailing" secondItem="cKq-H8-TYZ" secondAttribute="trailing" id="o07-z1-L8r"/>
+                            <constraint firstItem="mib-fv-ljd" firstAttribute="leading" secondItem="yaN-TA-6yh" secondAttribute="leading" constant="20" id="uRD-Jm-wnQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WEe-tm-btK"/>
@@ -139,6 +149,7 @@
                         <outlet property="floatingButton" destination="wUv-gV-xSk" id="EeO-hK-tSd"/>
                         <outlet property="restaurantsTableView" destination="cKq-H8-TYZ" id="aRG-rC-Mfu"/>
                         <outlet property="searchBar" destination="heV-d1-P7c" id="bf6-Bx-sgZ"/>
+                        <outlet property="stateLabel" destination="mib-fv-ljd" id="8Rd-fH-h2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-c1-MsZ" sceneMemberID="firstResponder"/>
